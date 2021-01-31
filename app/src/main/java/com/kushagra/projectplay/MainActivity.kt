@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-
+        //merged?
 
         setContentView(R.layout.activity_main)
     }
