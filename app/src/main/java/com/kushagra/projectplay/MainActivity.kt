@@ -12,7 +12,9 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-
+        //wassup
+        //branch
+        //test
 
         setContentView(R.layout.activity_main)
     }
