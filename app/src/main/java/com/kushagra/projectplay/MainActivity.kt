@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
         //branch
         //test
         //again
+        test
 
         setContentView(R.layout.activity_main)
     }
