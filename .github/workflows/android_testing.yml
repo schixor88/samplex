@@ -24,4 +24,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Tests
-        run: ./gradlew android_test.yml
+        run: ./gradlew android_testing.yml
