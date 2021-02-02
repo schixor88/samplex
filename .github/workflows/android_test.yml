@@ -1,0 +1,27 @@
+name: Android Test CI
+
+#on push of branches 'all [*]' except master [!master]
+on:
+  push:
+    branches:
+      - '*'
+
+#jobs needed to perform
+jobs:
+  #1 build job
+  build:
+    name: Build Project Action1
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
+      - name: Run Tests
+        run: ./gradlew android_test.yml

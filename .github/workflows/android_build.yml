@@ -1,8 +1,19 @@
-name: Android Build
+name: Android Build CI
 
-on: push
+#on push of branches 'all [*]' except master [!master]
+#on pull-request of 'master' branch only
+on:
+  pull_request:
+    branches:
+      - 'master'
+  push:
+    branches:
+      - '*'
+      - '!master'
 
+#jobs needed to perform
 jobs:
+  #1 build job
   build:
     name: Build Project Action1
     runs-on: ubuntu-latest
@@ -17,12 +28,13 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-      - name: Run Tests
-        run: ./gradlew test
+#      - name: Run Tests
+#        run: ./gradlew android_test.yml
 
       - name: Build Project
         run: ./gradlew assemble
 
+  #2 apk generate job
   apk:
     name: Generate APK
     runs-on: ubuntu-latest
