@@ -10,7 +10,7 @@ on:
 jobs:
   #1 build job
   build:
-    name: Build Project Action1
+    name: Test Action1
     runs-on: ubuntu-latest
 
     steps:
@@ -24,4 +24,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Tests
-        run: ./gradlew android_testing.yml
+        run: bash ./gradlew test
