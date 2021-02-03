@@ -59,9 +59,9 @@ jobs:
     steps:
       - name: GitHub Script
         run: |
-          - pip install requests
-          - git clone https://github.com/mega-arbuz/apk-release-deploy.git
-          - python apk-release-deploy/deploy.py
+          pip install requests
+          git clone https://github.com/mega-arbuz/apk-release-deploy.git
+          python apk-release-deploy/deploy.py
             --release.dir=app/build/outputs/apk/debug
             --app.name=Samplex
             --dropbox.token=sl.AqiX4OLti4QevMiWEDcC5siTFolhsKwUXwOT-hbAwYhS4VaAJ0gFI9ufUpQkQjUJbNGLuNu6g40E5jOzpZLLChOUSXR07u7iBKkIP-tnn54zlNLi2_jBCuiLyMe5UqYskNG7_Ts
