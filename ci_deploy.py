@@ -4,10 +4,14 @@ import dropbox
 from dropbox.files import WriteMode
 from dropbox.exceptions import ApiError, AuthError
 
+
+#running reference https://github.com/actions/setup-python
+#code reference https://gist.github.com/Keshava11/d14db1e22765e8de2670b8976f3c7efb
+
 # Access token
 TOKEN = 'KCKpFCbHXK0AAAAAAAAAAWIyE3FdKpYF8ozB9NhOUC3p5p1D0M6R6yIqShI0uEJb'
 
-LOCALFILE = '/home/runner/work/samplex/samplex/app/build/outputs/apk/debug/app-debug.apk'
+LOCALFILE = 'app/build/outputs/apk/debug/app-debug.apk'
 BACKUPPATH = '/samplex' # Keep the forward slash before destination filename
 
 
