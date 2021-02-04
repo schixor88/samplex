@@ -58,9 +58,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: setup python
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.5 #install the python needed
-            - name: execute py script # run the run.py to get the latest data
-              run: |
-                python ci_deploy.py
+        uses: actions/setup-python@v2
+        with:
+         python-version: 3.5 #install the python needed
+      - name: execute py script # run the run.py to get the latest data
+          run: |
+            python ci_deploy.py
