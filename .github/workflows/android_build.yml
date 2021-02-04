@@ -62,5 +62,4 @@ jobs:
         with:
          python-version: 3.5 #install the python needed
       - name: execute py script # run the run.py to get the latest data
-        run: |
-          python ci_deploy.py
+        run: chmod +x python ci_deploy.py
