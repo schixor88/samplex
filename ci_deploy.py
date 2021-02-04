@@ -5,7 +5,7 @@ from dropbox.files import WriteMode
 from dropbox.exceptions import ApiError, AuthError
 
 # Access token
-TOKEN = 'sl.AqiX4OLti4QevMiWEDcC5siTFolhsKwUXwOT-hbAwYhS4VaAJ0gFI9ufUpQkQjUJbNGLuNu6g40E5jOzpZLLChOUSXR07u7iBKkIP-tnn54zlNLi2_jBCuiLyMe5UqYskNG7_Ts'
+TOKEN = 'y09rnOeCouoAAAAAAAAAAa-4FNumzSzvyu87dCwgFV7C-zUwTY-iHxZwrADEy88D'
 
 LOCALFILE = 'app/build/outputs/apk/debug/app-debug.apk'
 BACKUPPATH = '/samplex' # Keep the forward slash before destination filename
