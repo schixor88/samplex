@@ -15,21 +15,19 @@ on:
 jobs:
   #1 build job
   build:
-    name: Build Project Action1
-    runs-on: ubuntu-latest
-
+    name: Run Build on Project # title
+    runs-on: ubuntu-latest # runs on
     steps:
       - uses: actions/checkout@v1
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: Change wrapper permissions
+      - name: Change wrapper permissions # permissions chmod +x to access gradle
         run: chmod +x ./gradlew
 
       - name: Build Project
-        run: ./gradlew assemble
+        run: ./gradlew assemble # gradle action to build
 
   #2 apk generate job
   apk:
@@ -45,21 +43,22 @@ jobs:
       - name: Build debug APK
         run: bash ./gradlew assembleDebug --stacktrace
         
-#       - uses: actions/checkout@v2
+#       - uses: actions/checkout@v2  # if you checkout the build/outputs will be cleared and apk will not be found
       - uses: actions/setup-python@v2
+      - name: Deploy APK to Dropbox
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified, tokens
-      - run: |
+      - run: | # python script to deploy the apk to desired dropbox
           pip install dropbox
           python ci_deploy.py
 
-
-#      - name: Upload APK
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: app-debug.apk
-#          path: app/build/outputs/apk/debug/app-debug.apk
+#      Upload the APK as artifact in github
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
 
 #  deploy:
 #    name: Delpoy APK
