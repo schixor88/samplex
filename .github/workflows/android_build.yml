@@ -1,22 +1,73 @@
-name: Android Build
+name: Android Build CI
 
-on: push
+#on push of branches 'all [*]' except master [!master]
+#on pull-request of 'master' branch only
+on:
+  pull_request:
+    branches:
+      - 'master'
+  push:
+    branches:
+      - '*'
+      - '!master'
 
+#jobs needed to perform
 jobs:
+  #1 build job
   build:
-
+    name: Project Builder
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
-
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
 
-      - name: Run Tests
-        run: ./gradlew test
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
 
       - name: Build Project
         run: ./gradlew assemble
+
+  #2 apk generate job and push to dropbox
+  deploy:
+    name: Project APK Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set Up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build debug APK
+        run: bash ./gradlew assembleDebug --stacktrace
+
+      #       - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified, tokens
+      - run: |
+          pip install dropbox
+          python ci_deploy.py
+
+#    Upload to Artifacts
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+
+
+#  artifact:
+#    name: To Artifacts
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: app-debug.apk
+#          path: app/build/outputs/apk/debug/app-debug.apk
