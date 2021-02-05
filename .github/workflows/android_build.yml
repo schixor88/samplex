@@ -55,7 +55,7 @@ jobs:
 
 #      Upload the APK as artifact in github
       - name: Upload APK
-        uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v1
         with:
           name: app-debug.apk
           path: app/build/outputs/apk/debug/app-debug.apk
