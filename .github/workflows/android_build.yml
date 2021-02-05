@@ -15,7 +15,7 @@ on:
 jobs:
   #1 build job
   build:
-    name: Build Project Action1
+    name: Project Builder
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +33,7 @@ jobs:
 
   #2 apk generate job and push to dropbox
   deploy:
-    name: Generate APK
+    name: Project APK Deploy
     runs-on: ubuntu-latest
 
     steps:

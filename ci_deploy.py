@@ -10,10 +10,10 @@ from dropbox.exceptions import ApiError, AuthError
 #code reference https://gist.github.com/Keshava11/d14db1e22765e8de2670b8976f3c7efb
 
 # Access token
-TOKEN = 'KCKpFCbHXK0AAAAAAAAAAWIyE3FdKpYF8ozB9NhOUC3p5p1D0M6R6yIqShI0uEJb'
+TOKEN = 'i4wTbHdOVUkAAAAAAAAAAUnD6Tn7Q5DWnQXn-fS3_-CvEugYTlCk8TYv5YOVsPH2'
 
 LOCALFILE = '/home/runner/work/samplex/samplex/app/build/outputs/apk/debug/app-debug.apk'
-BACKUPPATH = '/apk-sample/sample.apk' # Keep the forward slash before destination filename
+BACKUPPATH = '/apk-sample/app-debug.apk' # Keep the forward slash before destination filename
 
 
 def scantree(path):
