@@ -28,9 +28,6 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
-#      - name: Run Tests
-#        run: ./gradlew android_test.yml
-
       - name: Build Project
         run: ./gradlew assemble
 
@@ -47,22 +44,34 @@ jobs:
           java-version: 1.8
       - name: Build debug APK
         run: bash ./gradlew assembleDebug --stacktrace
-      - name: Upload APK
-        uses: actions/upload-artifact@v1
-        with:
-          name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
 
-  deploy:
-    name: Delpoy APK
-    runs-on: ubuntu-latest
-    steps:
+
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified, tokens
-
       - run: |
           pip install dropbox
           python ci_deploy.py
+
+
+#      - name: Upload APK
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: app-debug.apk
+#          path: app/build/outputs/apk/debug/app-debug.apk
+
+#  deploy:
+#    name: Delpoy APK
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-python@v2
+#        with:
+#          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+#          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified, tokens
+#
+#      - run: |
+#          pip install dropbox
+#          python ci_deploy.py
