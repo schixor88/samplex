@@ -60,7 +60,15 @@ if __name__ == '__main__':
     # Check for an access token
     
     for entry in scantree("app"):
-        print(entry)
+        print(entry.path)
+        file_found = False
+        if entry.name.endswith('.apk'):
+            print('=== APK ===', entry.path)
+            file_found = True
+       
+    if not file_found:
+        print('File NOT Found')
+        
     
     if (len(TOKEN) == 0):
         sys.exit("ERROR: Looks like you didn't add your access token. Open up backup-and-restore-example.py in a text editor and paste in your token in line 14.")
