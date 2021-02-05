@@ -12,7 +12,7 @@ from dropbox.exceptions import ApiError, AuthError
 TOKEN = 'KCKpFCbHXK0AAAAAAAAAAWIyE3FdKpYF8ozB9NhOUC3p5p1D0M6R6yIqShI0uEJb'
 
 LOCALFILE = 'app/build/outputs/apk/debug/app-debug.apk'
-BACKUPPATH = '/samplex' # Keep the forward slash before destination filename
+BACKUPPATH = '/sample.apk' # Keep the forward slash before destination filename
 
 
 # Uploads contents of LOCALFILE to Dropbox
